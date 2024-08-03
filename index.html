@@ -1,81 +1,28 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors game</title>
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
-        //Creating the function that generates computer choice(PlayerEnemy)
-        function getComputerChoice(){
-            let choice=["rock", "paper", "scissor"];
-            computerChoice=choice[Math.floor(Math.random())*3]
-            return computerChoice
-        }
-        //Creating the function that compares the  computer choice(PlayerEnemy) and Player choice.
-        function playRound(playerSelection, computerSelection) {
-            
-            if (playerSelection==computerSelection){
-                let j="Oooops! That's a draw."
-                return j;
-            }
-                else if (playerSelection=="rock" && computerSelection=="paper"){
-                    let j="You Lose!  Paper beats Rock";
-                    return j;
-                }
-                else if (playerSelection=="paper" && computerSelection=="rock"){
-                    let j="You Win! Paper beats Rock ";
-                    return j;
-                }
-                else if (playerSelection=="rock" && computerSelection=="scissor"){
-                    let j="You Win! Rock beats Scissor";
-                    return j;
-                }
-                else if (playerSelection=="scissor" && computerSelection=="rock"){
-                    let j= "You Lose! Rock beats Scissor"
-                    return j;
-                }
-                else if (playerSelection=="scissor" && computerSelection=="paper"){
-                    let   j="You Win! Scissor beats Paper "
-                    return j;
-                }
-            else {
-                let j="You Lose! Scissor beats Paper"
-                return j;
-            }
-        }
-        //Let's make a function that show us the winner.
-        for (i=1; i<=5;i++){
-            const 
-            playerChoice=prompt("rock, paper or scissor")
-            computerChoice=getComputerChoice(),  
-            me="Your choice is: " + playerChoice,
-            you="Enemy choice: " + computerChoice,
-            round=playRound(playerChoice, computerChoice)
-            ;
-            var j=0,k=0, playerScore=0, enemyScore=0;
-            alert(me)
-            alert(you)
-            alert(round)
-            if (round[4]=="W"){
-                j=1 
-            }
-            else if(round[4]=="o"){
-                j=0
-            }
-            else{
-                k=1
-            }
-            playerScore=playerScore +j
-            enemyScore=enemyScore + k
-        }
-        if (playerScore>=enemyScore){
-            alert("Congratulations! You win this round")
-        }
-        else{
-            alert("Unfortunately! You lose in this round")
-        }
-    </script>
+    <div class="container">
+        <h1>Rock Paper Scissors</h1>
+        <div class="scoreboard">
+            <div>Player: <span id="player-score">0</span></div>
+            <div>Computer: <span id="computer-score">0</span></div>
+        </div>
+        <div class="choices">
+            <img src="images/rock.png" alt="Rock" class="choice" id="rock">
+            <img src="images/paper.png" alt="Paper" class="choice" id="paper">
+            <img src="images/scissors.png" alt="Scissors" class="choice" id="scissors">
+        </div>
+        <div class="result" id="result"></div>
+        <div class="final-result" id="final-result"></div>
+        <button id="reset" style="display: none;">Play Again</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
